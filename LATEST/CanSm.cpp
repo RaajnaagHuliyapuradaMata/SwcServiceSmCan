@@ -131,7 +131,9 @@ FUNC(void, CANSM_CODE) module_CanSm::InitFunction(
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_CanSm::DeInitFunction(void){
+FUNC(void, CANSM_CODE) module_CanSm::DeInitFunction(
+   void
+){
 #if(STD_ON == CanSm_InitCheck)
    if(
          E_OK
@@ -154,7 +156,9 @@ FUNC(void, CANSM_CODE) module_CanSm::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_CanSm::MainFunction(void){
+FUNC(void, CANSM_CODE) module_CanSm::MainFunction(
+   void
+){
 #if(STD_ON == CanSm_InitCheck)
    if(
          E_OK
@@ -176,7 +180,9 @@ FUNC(void, CANSM_CODE) module_CanSm::MainFunction(void){
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_CanSm::dummy(void){
+FUNC(void, CANSM_CODE) module_CanSm::dummy(
+   void
+){
 }
 
 /******************************************************************************/
