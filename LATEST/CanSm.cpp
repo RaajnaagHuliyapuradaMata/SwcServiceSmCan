@@ -35,8 +35,6 @@
 /* CONSTS                                                                     */
 /******************************************************************************/
 CONSTP2VAR(infEcuMClient, CANSM_VAR, CANSM_CONST) gptrinfEcuMClient_CanSm = &CanSm;
-CONSTP2VAR(infDcmClient,  CANSM_VAR, CANSM_CONST) gptrinfDcmClient_CanSm  = &CanSm;
-CONSTP2VAR(infSchMClient, CANSM_VAR, CANSM_CONST) gptrinfSchMClient_CanSm = &CanSm;
 
 /******************************************************************************/
 /* PARAMS                                                                     */
