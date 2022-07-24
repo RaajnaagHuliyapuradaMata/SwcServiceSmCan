@@ -7,6 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "ConstCanSm.hpp"
 #include "CfgCanSm.hpp"
 #include "CanSm_core.hpp"
 #include "infCanSm_Exp.hpp"
@@ -31,6 +32,7 @@ class module_CanSm:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+      const ConstCanSm_Type* lptrConst = (ConstCanSm_Type*)NULL_PTR;
       infPduRClient_Up infPduRClient_CanSm;
 
    public:
@@ -38,7 +40,8 @@ class module_CanSm:
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, CANSM_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, CANSM_CONFIG_DATA, CANSM_APPL_CONST) lptrCfgModule
+            CONSTP2CONST(ConstModule_TypeAbstract, CANSM_CONST,       CANSM_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   CANSM_CONFIG_DATA, CANSM_APPL_CONST) lptrCfgModule
       );
       FUNC(void, CANSM_CODE) DeInitFunction (void);
       FUNC(void, CANSM_CODE) MainFunction   (void);

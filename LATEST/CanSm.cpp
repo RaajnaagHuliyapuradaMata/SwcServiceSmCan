@@ -48,7 +48,8 @@ VAR(module_CanSm, CANSM_VAR) CanSm;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, CANSM_CODE) module_CanSm::InitFunction(
-   CONSTP2CONST(CfgModule_TypeAbstract, CANSM_CONFIG_DATA, CANSM_APPL_CONST) lptrCfgModule
+      CONSTP2CONST(ConstModule_TypeAbstract, CANSM_CONST,       CANSM_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   CANSM_CONFIG_DATA, CANSM_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == CanSm_InitCheck)
    if(
@@ -56,8 +57,12 @@ FUNC(void, CANSM_CODE) module_CanSm::InitFunction(
       != IsInitDone
    ){
 #endif
-      if(NULL_PTR != lptrCfgModule){
-         lptrCfg = lptrCfgModule;
+      if(
+            (NULL_PTR != lptrConstModule)
+         && (NULL_PTR != lptrCfgModule)
+      ){
+         lptrConst = lptrConstModule;
+         lptrCfg   = lptrCfgModule;
       }
       else{
 #if(STD_ON == CanSm_DevErrorDetect)
