@@ -13,18 +13,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CANSM_AR_RELEASE_VERSION_MAJOR                                         4
-#define CANSM_AR_RELEASE_VERSION_MINOR                                         3
+#define SERVICECANSM_AR_RELEASE_VERSION_MAJOR                                         4
+#define SERVICECANSM_AR_RELEASE_VERSION_MINOR                                         3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(CANSM_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible CANSM_AR_RELEASE_VERSION_MAJOR!"
+#if(SERVICECANSM_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible SERVICECANSM_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(CANSM_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible CANSM_AR_RELEASE_VERSION_MINOR!"
+#if(SERVICECANSM_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible SERVICECANSM_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -42,14 +42,14 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_ServiceCanSm, CANSM_VAR) ServiceCanSm;
+VAR(module_ServiceCanSm, SERVICECANSM_VAR) ServiceCanSm;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, CANSM_CODE) module_ServiceCanSm::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, CANSM_CONST,       CANSM_APPL_CONST) lptrConstModule
-   ,  CONSTP2CONST(CfgModule_TypeAbstract,   CANSM_CONFIG_DATA, CANSM_APPL_CONST) lptrCfgModule
+FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::InitFunction(
+      CONSTP2CONST(ConstModule_TypeAbstract, SERVICECANSM_CONST,       SERVICECANSM_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICECANSM_CONFIG_DATA, SERVICECANSM_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == ServiceCanSm_InitCheck)
    if(
@@ -83,14 +83,14 @@ FUNC(void, CANSM_CODE) module_ServiceCanSm::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  CANSM_E_UNINIT
+         ,  SERVICECANSM_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_ServiceCanSm::DeInitFunction(
+FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::DeInitFunction(
    void
 ){
 #if(STD_ON == ServiceCanSm_InitCheck)
@@ -108,14 +108,14 @@ FUNC(void, CANSM_CODE) module_ServiceCanSm::DeInitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  CANSM_E_UNINIT
+         ,  SERVICECANSM_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_ServiceCanSm::MainFunction(
+FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::MainFunction(
    void
 ){
 #if(STD_ON == ServiceCanSm_InitCheck)
@@ -132,14 +132,14 @@ FUNC(void, CANSM_CODE) module_ServiceCanSm::MainFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  CANSM_E_UNINIT
+         ,  SERVICECANSM_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, CANSM_CODE) module_ServiceCanSm::dummy(
+FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::dummy(
    void
 ){
 }
