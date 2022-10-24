@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* File   : ServiceCanSm.cpp                                                         */
+/* File   : ServiceCanSm.cpp                                                  */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -13,8 +13,8 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define SERVICECANSM_AR_RELEASE_VERSION_MAJOR                                         4
-#define SERVICECANSM_AR_RELEASE_VERSION_MINOR                                         3
+#define SERVICECANSM_AR_RELEASE_VERSION_MAJOR                                  4
+#define SERVICECANSM_AR_RELEASE_VERSION_MINOR                                  3
 
 /******************************************************************************/
 /* MACROS                                                                     */
