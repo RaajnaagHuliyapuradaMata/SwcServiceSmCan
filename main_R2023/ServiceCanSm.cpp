@@ -13,19 +13,10 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define SERVICECANSM_AR_RELEASE_VERSION_MAJOR                                  4
-#define SERVICECANSM_AR_RELEASE_VERSION_MINOR                                  3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(SERVICECANSM_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible SERVICECANSM_AR_RELEASE_VERSION_MAJOR!"
-#endif
-
-#if(SERVICECANSM_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible SERVICECANSM_AR_RELEASE_VERSION_MINOR!"
-#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -48,7 +39,7 @@ VAR(module_ServiceCanSm, SERVICECANSM_VAR) ServiceCanSm;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, SERVICECANSM_CONST,       SERVICECANSM_APPL_CONST) lptrConstModule
+      CONSTP2CONST(ConstModule_TypeAbstract, SERVICECANSM_CONST,       SERVICECANSM_APPL_CONST) lptrNvMBlocksRomModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICECANSM_CONFIG_DATA, SERVICECANSM_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == ServiceCanSm_InitCheck)
@@ -58,10 +49,10 @@ FUNC(void, SERVICECANSM_CODE) module_ServiceCanSm::InitFunction(
    ){
 #endif
       if(
-            (NULL_PTR != lptrConstModule)
+            (NULL_PTR != lptrNvMBlocksRomModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = (const ConstServiceCanSm_Type*)lptrConstModule;
+         lptrNvMBlocksRom = lptrNvMBlocksRomModule;
          lptrCfg   = lptrCfgModule;
       }
       else{

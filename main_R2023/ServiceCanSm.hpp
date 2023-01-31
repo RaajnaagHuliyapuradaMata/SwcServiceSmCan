@@ -32,7 +32,7 @@ class module_ServiceCanSm:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-      const ConstServiceCanSm_Type* lptrConst = (ConstServiceCanSm_Type*)NULL_PTR;
+      const ConstModule_TypeAbstract* lptrNvMBlocksRom = (ConstModule_TypeAbstract*)NULL_PTR;
       infServicePduRClient_Up infServicePduRClient_ServiceCanSm;
 
    public:
@@ -40,7 +40,7 @@ class module_ServiceCanSm:
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, SERVICECANSM_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, SERVICECANSM_CONST,       SERVICECANSM_APPL_CONST) lptrConstModule
+            CONSTP2CONST(ConstModule_TypeAbstract, SERVICECANSM_CONST,       SERVICECANSM_APPL_CONST) lptrNvMBlocksRomModule
          ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICECANSM_CONFIG_DATA, SERVICECANSM_APPL_CONST) lptrCfgModule
       );
       FUNC(void, SERVICECANSM_CODE) DeInitFunction (void);
