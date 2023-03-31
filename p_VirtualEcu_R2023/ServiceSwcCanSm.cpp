@@ -39,7 +39,7 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_InitFunction   (const CfgServiceSwcCanSm_Type* CfgServiceSwcCanSm_ptr){UNUSED(CfgServiceSwcCanSm_ptr);}
+FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_InitFunction   (const CfgServiceSwcCanSm_tst* CfgServiceSwcCanSm_ptr){UNUSED(CfgServiceSwcCanSm_ptr);}
 FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_DeInitFunction (void){}
 FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcSchM_MainFunction   (void){}
 

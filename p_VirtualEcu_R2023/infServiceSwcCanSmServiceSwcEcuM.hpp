@@ -24,7 +24,7 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_InitFunction   (const CfgServiceSwcCanSm_Type*   CfgServiceSwcCanSm_ptr);
+extern FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_InitFunction   (const CfgServiceSwcCanSm_tst*   CfgServiceSwcCanSm_ptr);
 extern FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_DeInitFunction (void);
 
 /******************************************************************************/
