@@ -1,13 +1,13 @@
 #pragma once
 /******************************************************************************/
-/* File   : infServiceSwcCanSmServiceSwcEcuM.hpp                              */
+/* File   : infSwcServiceCanSmSwcServiceEcuM.hpp                              */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CfgServiceSwcCanSm.hpp"
+#include "CfgSwcServiceCanSm.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -24,8 +24,8 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_InitFunction   (const CfgServiceSwcCanSm_tst*   CfgServiceSwcCanSm_ptr);
-extern FUNC(void, SERVICESWCCANSM_CODE) infServiceSwcCanSmServiceSwcEcuM_DeInitFunction (void);
+extern FUNC(void, SWCSERVICECANSM_CODE) infSwcServiceCanSmSwcServiceEcuM_InitFunction   (const CfgSwcServiceCanSm_tst*   CfgSwcServiceCanSm_ptr);
+extern FUNC(void, SWCSERVICECANSM_CODE) infSwcServiceCanSmSwcServiceEcuM_DeInitFunction (void);
 
 /******************************************************************************/
 /* CONSTS                                                                     */
