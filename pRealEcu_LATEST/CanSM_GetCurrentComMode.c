@@ -1,14 +1,12 @@
 #include "Std_Types.hpp"
 
-#include "Types_SwcServiceComM.hpp"
-
 #include "CanSM_Prv.hpp"
 
 #define CANSM_START_SEC_CODE
 #include "CanSM_MemMap.hpp"
 FUNC(Std_ReturnType, CANSM_CODE) CanSM_GetCurrentComMode(
         VAR(NetworkHandleType, AUTOMATIC                 ) network
-   ,  P2VAR(Type_SwcServiceComM_tMode,     AUTOMATIC, CANSM_APPL_DATA) ComM_ModePtr
+   ,  P2VAR(ComM_ModeType,     AUTOMATIC, CANSM_APPL_DATA) ComM_ModePtr
 ){
    VAR(Std_ReturnType, AUTOMATIC) stFuncVal = E_NOT_OK;
    VAR(boolean,     AUTOMATIC) CanSM_NwInitStatus_b;

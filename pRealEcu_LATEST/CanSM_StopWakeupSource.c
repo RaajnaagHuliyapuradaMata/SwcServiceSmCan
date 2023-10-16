@@ -1,7 +1,5 @@
 #include "Std_Types.hpp"
 
-#include "Types_SwcServiceComM.hpp"
-
 #include "CanSM_Prv.hpp"
 
 #define CANSM_START_SEC_CODE
@@ -17,7 +15,16 @@ FUNC(Std_ReturnType, CANSM_CODE) CanSM_StopWakeupSource(VAR(NetworkHandleType, A
    		CanSM_CurrNw_Mode_en[network] = CANSM_BSM_S_PRE_NOCOM;
    		CanSM_ReqComM_Mode_en[network] = COMM_NO_COMMUNICATION;
    if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].Trcv_hndle_u8 != 255){
+#if(CANSM_PN_SUPPORT_CONFIGD == STD_ON)
+   		if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].TrcvPnConfig_b == TRUE){
+   				CanSM_PreNoCom_Substates_en[network] = CANSM_S_PN_CLEAR_WUF;
+   			}
+   		else{
+   				CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
+   			}
+#else
    		CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
+#endif
    	}
    else{
    		CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;

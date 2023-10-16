@@ -1,7 +1,5 @@
 #include "Std_Types.hpp"
 
-#include "Types_SwcServiceComM.hpp"
-
 #include "CanSM_Prv.hpp"
 
 #define CANSM_START_SEC_CODE

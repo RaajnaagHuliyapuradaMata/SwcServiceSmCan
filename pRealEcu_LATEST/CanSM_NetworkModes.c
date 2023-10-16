@@ -1,12 +1,10 @@
 #include "Std_Types.hpp"
 
-#include "Types_SwcServiceComM.hpp"
-
 #include "CanSM_Prv.hpp"
 
 #define CANSM_START_SEC_CODE
 #include "CanSM_MemMap.hpp"
-FUNC(void, CANSM_CODE) CanSM_NetworkModeTrans( VAR(NetworkHandleType, AUTOMATIC) network,VAR(Type_SwcServiceComM_tMode, AUTOMATIC) ComM_Mode ){
+FUNC(void, CANSM_CODE) CanSM_NetworkModeTrans( VAR(NetworkHandleType, AUTOMATIC) network,VAR(ComM_ModeType, AUTOMATIC) ComM_Mode ){
    VAR(CanSM_BswMCurrentStateType, AUTOMATIC) CanSM_BswM_Mode_en;
    VAR(CanSM_NetworkModeStateType_ten, AUTOMATIC) CanSM_CurrNwMode_en;
    CanSM_CurrNwMode_en = CanSM_CurrNw_Mode_en[network];
@@ -30,10 +28,25 @@ FUNC(void, CANSM_CODE) CanSM_NetworkModeTrans( VAR(NetworkHandleType, AUTOMATIC)
             CanSM_BswM_Mode_en=CANSM_BSWM_NO_COMMUNICATION;
             BswM_CanSM_CurrentState(CanSM_Network_pcst[network].ComM_channelId_uo,CanSM_BswM_Mode_en);
             if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].Trcv_hndle_u8 != 255){
+#if(CANSM_PN_SUPPORT_CONFIGD == STD_ON)
+               if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].TrcvPnConfig_b == TRUE){
+                   if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                       CanSM_PreNoCom_Substates_en[network] = CANSM_S_PN_CLEAR_WUF;
+                   }
+                   CanSM_DeInitPnSupported(network);
+                 }
+               else{
+                   if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                           CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
+                       }
+                   CanSM_DeInitPnNotSupported(network);
+                 }
+#else
                if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
                        CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
                    }
                CanSM_DeInitPnNotSupported(network);
+#endif
              }
            else{
                if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
@@ -47,10 +60,25 @@ FUNC(void, CANSM_CODE) CanSM_NetworkModeTrans( VAR(NetworkHandleType, AUTOMATIC)
             CanSM_BswM_Mode_en=CANSM_BSWM_NO_COMMUNICATION;
             BswM_CanSM_CurrentState(CanSM_Network_pcst[network].ComM_channelId_uo,CanSM_BswM_Mode_en);
             if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].Trcv_hndle_u8 != 255){
+#if(CANSM_PN_SUPPORT_CONFIGD == STD_ON)
+               if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].TrcvPnConfig_b == TRUE){
+                   if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                       CanSM_PreNoCom_Substates_en[network] = CANSM_S_PN_CLEAR_WUF;
+                   }
+                   CanSM_DeInitPnSupported(network);
+                 }
+               else{
                    if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
                            CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
                        }
                    CanSM_DeInitPnNotSupported(network);
+                 }
+#else
+                   if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                           CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
+                       }
+                   CanSM_DeInitPnNotSupported(network);
+#endif
              }
            else{
                if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
@@ -61,10 +89,25 @@ FUNC(void, CANSM_CODE) CanSM_NetworkModeTrans( VAR(NetworkHandleType, AUTOMATIC)
         }
    else if((CanSM_CurrNw_Mode_en[network] == CANSM_BSM_S_PRE_NOCOM)&&(ComM_Mode == COMM_NO_COMMUNICATION)){
      if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].Trcv_hndle_u8 != 255){
+#if(CANSM_PN_SUPPORT_CONFIGD == STD_ON)
+        if(CfgSwcServiceCanSM_castConfigSet_pcst->CanSM_NetworkConf_pcst[network].TrcvPnConfig_b == TRUE){
+            if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                CanSM_PreNoCom_Substates_en[network] = CANSM_S_PN_CLEAR_WUF;
+            }
+            CanSM_DeInitPnSupported(network);
+          }
+        else{
+            if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
+                CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
+            }
+            CanSM_DeInitPnNotSupported(network);
+          }
+#else
         if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
             CanSM_PreNoCom_Substates_en[network] = CANSM_S_CC_STOPPED;
         }
         CanSM_DeInitPnNotSupported(network);
+#endif
       }
    else{
         if(CanSM_PreNoCom_Substates_en[network] == CANSM_DEFAULT){
