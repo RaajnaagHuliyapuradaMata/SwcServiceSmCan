@@ -36,7 +36,7 @@ FUNC(void, CANSM_CODE) CanSM_StopCtrl(VAR(NetworkHandleType, AUTOMATIC) network)
    for(CanSM_Ctrl_index_u8 = 0; CanSM_Ctrl_index_u8 < CanSM_NetworkConf_ps->SizeofController_u8 ;CanSM_Ctrl_index_u8++){
    	CanSM_ControllerId_u8 = CanSM_NetworkConf_ps->Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
    	if(CanSM_ControllerState_en[CanSM_ControllerId_u8] != CANSM_ControllerState_STOPPED){
-            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,CANIF_CS_STOPPED)){
+            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,EcuabCanIf_eModeController_STOPPED)){
    			CanSM_Ctrl_Status_u8[CanSM_Ctrl_index_u8] = CANSM_FALSE;
    			CanSM_Num_Unsuccessful_ModeReq_au8[network]++;
    			break;
@@ -241,7 +241,7 @@ FUNC(void, CANSM_CODE) CanSM_StartCtrl(VAR(NetworkHandleType, AUTOMATIC) network
    for(CanSM_Ctrl_index_u8 = 0; CanSM_Ctrl_index_u8 < CanSM_NetworkConf_ps->SizeofController_u8 ;CanSM_Ctrl_index_u8++){
    	CanSM_ControllerId_u8 = CanSM_NetworkConf_ps->Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
    	if(CanSM_ControllerState_en[CanSM_ControllerId_u8] != CANSM_ControllerState_STARTED){
-            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,CANIF_CS_STARTED)){
+            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,EcuabCanIf_eModeController_STARTED)){
    			CanSM_Ctrl_Status_u8[CanSM_Ctrl_index_u8] = CANSM_FALSE;
    			CanSM_Num_Unsuccessful_ModeReq_au8[network]++;
    			break;
@@ -386,7 +386,7 @@ FUNC(void, CANSM_CODE) CanSM_SleepCtrl(VAR(NetworkHandleType, AUTOMATIC) network
    for(CanSM_Ctrl_index_u8 = 0; CanSM_Ctrl_index_u8 < CanSM_NetworkConf_ps->SizeofController_u8 ;CanSM_Ctrl_index_u8++){
    	CanSM_ControllerId_u8 = CanSM_NetworkConf_ps->Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
    	if(CanSM_ControllerState_en[CanSM_ControllerId_u8] != CANSM_ControllerState_SLEEP){
-            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,CANIF_CS_SLEEP)){
+            if(E_NOT_OK == CanIf_SetControllerMode(CanSM_ControllerId_u8,EcuabCanIf_eModeController_SLEEP)){
    			CanSM_Ctrl_Status_u8[CanSM_Ctrl_index_u8] = CANSM_FALSE;
    			CanSM_Num_Unsuccessful_ModeReq_au8[network]++;
    			break;
@@ -912,13 +912,13 @@ FUNC(void, CANSM_CODE) CanSM_NO2FULL_COM(VAR(NetworkHandleType, AUTOMATIC) netwo
    						CanSM_ControllerId_u8 = CanSM_Network_pcst[network].Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
    						if(CanSM_Passive_b == TRUE){
-   							(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_TX_OFFLINE_ACTIVE));
+   							(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
    						}
    						else{
-   							(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+   							(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
    						}
 #else
-   						(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+   						(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
 #endif
    					}
    					CanSM_reqComM_Mode_uo = COMM_FULL_COMMUNICATION;
@@ -996,13 +996,13 @@ FUNC(void, CANSM_CODE) CanSM_NO2FULL_COM(VAR(NetworkHandleType, AUTOMATIC) netwo
    			CanSM_ControllerId_u8 = CanSM_Network_pcst[network].Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
    			if(CanSM_Passive_b == TRUE){
-   				(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_TX_OFFLINE_ACTIVE));
+   				(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
    			}
    			else{
-   				(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+   				(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
    			}
 #else
-   			(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+   			(void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
 #endif
    		}
    		CanSM_reqComM_Mode_uo = COMM_FULL_COMMUNICATION;
@@ -1027,7 +1027,7 @@ FUNC(void, CANSM_CODE) CanSM_FULL2SILENT_COM(VAR(NetworkHandleType, AUTOMATIC) n
    BswM_CanSM_CurrentState(NetworkConf_ps->ComM_channelId_uo,CanSM_BswM_Mode_en);
    for(CanSM_Ctrl_index_u8 = 0; CanSM_Ctrl_index_u8 < CanSM_Network_pcst[network].SizeofController_u8 ;CanSM_Ctrl_index_u8++){
         CanSM_ControllerId_u8 = CanSM_Network_pcst[network].Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
-        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_TX_OFFLINE));
+        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_TX_OFFLINE));
    }
    CanSM_reqComM_Mode_uo = COMM_SILENT_COMMUNICATION ;
    ComM_BusSM_ModeIndication(CanSM_Network_pcst[network].ComM_channelId_uo, &CanSM_reqComM_Mode_uo);
@@ -1045,13 +1045,13 @@ FUNC(void, CANSM_CODE) CanSM_SILENT2FULL_COM(VAR(NetworkHandleType, AUTOMATIC) n
 
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
         if(CanSM_Passive_b == TRUE){
-            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_TX_OFFLINE_ACTIVE));
+            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
         }
         else{
-            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
         }
 #else
-        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,CANIF_ONLINE));
+        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8,EcuabCanIf_eModePdu_ONLINE));
 #endif
    }
 
@@ -1104,13 +1104,13 @@ FUNC(void, CANSM_CODE) CanSM_TxTimeoutException_StateMachine(VAR(NetworkHandleTy
 
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
                         if(CanSM_Passive_b == TRUE){
-                            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_TX_OFFLINE_ACTIVE));
+                            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
                         }
                         else{
-                            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+                            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
                         }
 #else
-                        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+                        (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
 #endif
                     }
                     CanSM_currBOR_State_en[Channel] = CANSM_S_NO_BUS_OFF;
@@ -1148,13 +1148,13 @@ FUNC(void, CANSM_CODE) CanSM_TxTimeoutException_StateMachine(VAR(NetworkHandleTy
 
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
                 if(CanSM_Passive_b == TRUE){
-                    (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_TX_OFFLINE_ACTIVE));
+                    (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
                 }
                 else{
-                    (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+                    (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
                 }
 #else
-                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
 #endif
             }
             CanSM_currBOR_State_en[Channel] = CANSM_S_NO_BUS_OFF;
@@ -1185,13 +1185,13 @@ FUNC(void, CANSM_CODE) CanSM_ChangeBR_Exit(VAR(NetworkHandleType, AUTOMATIC) net
 
 #if(CANSM_TX_OFFLINE_ACTIVE_SUPPORT == STD_ON)
             if(CanSM_Passive_b == TRUE){
-                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_TX_OFFLINE_ACTIVE));
+                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_TX_OFFLINE_ACTIVE));
             }
             else{
-                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+                (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
             }
 #else
-            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, CANIF_ONLINE));
+            (void)(CanIf_SetPduMode(CanSM_ControllerId_u8, EcuabCanIf_eModePdu_ONLINE));
 #endif
         }
         CanSM_ComM_ModeType_uo = COMM_FULL_COMMUNICATION;

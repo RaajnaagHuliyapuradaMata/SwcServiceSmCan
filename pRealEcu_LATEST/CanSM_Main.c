@@ -86,9 +86,9 @@ FUNC(void, CANSM_CODE) infSwcServiceCanSMSwcServiceSchM_vMainFunction(void){
                 for(CanSM_Ctrl_index_u8 = 0; CanSM_Ctrl_index_u8 < CanSM_NetworkConf_ps->SizeofController_u8 ;CanSM_Ctrl_index_u8++){
                     CanSM_ControllerId_u8 = CanSM_NetworkConf_ps->Cntrl_startidx_pu8[CanSM_Ctrl_index_u8];
                     if(CanSM_ControllerState_en[CanSM_ControllerId_u8] != CANSM_ControllerState_STOPPED){
-                       (void)CanIf_SetControllerMode(CanSM_ControllerId_u8,CANIF_CS_STOPPED);
+                       (void)CanIf_SetControllerMode(CanSM_ControllerId_u8,EcuabCanIf_eModeController_STOPPED);
                     }
-                    (void)(CanIf_SetPduMode((uint8)CanSM_ControllerId_u8,CANIF_OFFLINE));
+                    (void)(CanIf_SetPduMode((uint8)CanSM_ControllerId_u8,EcuabCanIf_eModePdu_OFFLINE));
                 }
             }
         else if((CanSM_BORMode_u8 == (uint8)CANSM_RECOVERY_ENABLED) &&  ((CanSM_BusOff_Indicated_ab[CanSM_NetworkIdx_u8] == TRUE) || (CanSM_BusOffISRPend_ab[CanSM_NetworkIdx_u8]))){

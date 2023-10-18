@@ -4,7 +4,7 @@
 
 #define CANSM_START_SEC_CODE
 #include "CanSM_MemMap.hpp"
-FUNC(void, CANSM_CODE) CanSM_ControllerModeIndication(VAR(uint8, AUTOMATIC) ControllerId,VAR(Type_EcuabCanIf_eModeController,AUTOMATIC) ControllerMode){
+FUNC(void, CANSM_CODE) CanSM_ControllerModeIndication(VAR(uint8, AUTOMATIC) ControllerId,VAR(Type_EcuabCanIf_eModesController, AUTOMATIC) ControllerMode){
    VAR(uint8, AUTOMATIC) network_indx_u8;
    VAR(uint8_least, AUTOMATIC) CanSM_ControllerId_u8;
    VAR(uint8_least, AUTOMATIC) CanSM_Ctrl_index_u8;

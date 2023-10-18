@@ -104,7 +104,7 @@ extern FUNC(void, CANSM_CODE) CanSM_GetVersionInfo( P2VAR(Std_VersionInfoType, A
 #endif
 
 #if(CANSM_SET_BAUDRATE_API == STD_ON)
-extern FUNC(Std_ReturnType, CANSM_CODE) CanSM_SetBaudrate(VAR(NetworkHandleType, AUTOMATIC) Network,CONST(uint16,AUTOMATIC) BaudRateConfigID);
+extern FUNC(Std_ReturnType, CANSM_CODE) CanSM_SetBaudrate(VAR(NetworkHandleType, AUTOMATIC) Network,CONST(uint16, AUTOMATIC) BaudRateConfigID);
 #endif
 
 extern FUNC(Std_ReturnType, CANSM_CODE) CanSM_StartWakeupSource(        VAR(NetworkHandleType, AUTOMATIC) network);
