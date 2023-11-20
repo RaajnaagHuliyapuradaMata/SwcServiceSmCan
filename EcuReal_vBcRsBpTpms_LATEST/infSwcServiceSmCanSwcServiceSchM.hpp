@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : infSwcServiceCanSmSwcServiceSchM.hpp                              */
+/* File   : infSwcServiceSmCanSwcServiceSchM.hpp                              */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -24,7 +24,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CfgSwcServiceCanSm.hpp"
+#include "CfgSwcServiceSmCan.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -41,7 +41,7 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, SWCSERVICECANSM_CODE) infSwcServiceCanSMSwcServiceSchM_vMainFunction (void);
+extern FUNC(void, SWCSERVICESMCAN_CODE) infSwcServiceSmCanSwcServiceSchM_vMainFunction (void);
 
 /******************************************************************************/
 /* CONSTS                                                                     */

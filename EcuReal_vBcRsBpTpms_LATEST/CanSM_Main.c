@@ -5,7 +5,7 @@
 
 #define CANSM_START_SEC_CODE
 #include "CanSM_MemMap.hpp"
-FUNC(void, CANSM_CODE) infSwcServiceSmCanSwcServiceSchM_vMainFunction(void){
+FUNC(void, SWCSERVICESMCAN_CODE) infSwcServiceSmCanSwcServiceSchM_vMainFunction(void){
    VAR(uint8, AUTOMATIC) CanSM_NetworkIdx_u8;
    VAR(CanSM_NetworkModeStateType_ten, AUTOMATIC) CanSM_CurrNwMode_en;
    VAR(CanSM_BusOffRecoveryStateType_ten, AUTOMATIC) CanSM_CurrBORState_en;
