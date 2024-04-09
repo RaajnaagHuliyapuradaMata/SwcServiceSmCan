@@ -40,8 +40,8 @@ do{                                                                     \
 
 typedef enum{
       CANSM_DEFAULT
-   ,  CANSM_S_CC_STOPPED 
-   ,  CANSM_S_PN_CC_STOPPED 
+   ,  CANSM_S_CC_STOPPED
+   ,  CANSM_S_PN_CC_STOPPED
    ,  CANSM_S_CC_STOPPED_WAIT
    ,  CANSM_S_PN_CC_STOPPED_WAIT
    ,  CANSM_S_CC_SLEEP
@@ -56,7 +56,7 @@ typedef enum{
    ,  CANSM_S_PN_TRCV_STANDBY
    ,  CANSM_S_TRCV_STANDBY_WAIT
    ,  CANSM_S_PN_TRCV_STANDBY_WAIT
-   ,  CANSM_S_PN_CLEAR_WUF 
+   ,  CANSM_S_PN_CLEAR_WUF
    ,  CANSM_S_PN_CLEAR_WUF_WAIT
    ,  CANSM_S_CHECK_WFLAG_IN_CC_SLEEP
    ,  CANSM_S_CHECK_WFLAG_IN_CC_SLEEP_WAIT
